@@ -1,7 +1,7 @@
 name: 'Cache Dependencies'
 description: 'Cache & install Dependencies'
 runs:
-  uses: 'composite'
+  using: 'composite'
   steps:
       - name: Cache dependencies
         id: cache
@@ -12,3 +12,4 @@ runs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+        shell: bash
