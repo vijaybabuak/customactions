@@ -1,8 +1,9 @@
 name: Deployment
-on: workflow_dispatch
-#  push:
-#    branches:
-#      - main
+on: 
+  workflow_dispatch:
+  push:
+   branches:
+    - main
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -10,7 +11,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: cache-action
-        uses: ./.github/actions/cache-deps/action.yml
+        uses: ./.github/actions/cache-deps
       - name: Lint code
         run: npm run lint
   test:
@@ -19,7 +20,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: cache-action
-        uses: ./.github/actions/cache-deps/action.yml
+        uses: ./.github/actions/cache-deps
       - name: Test code
         id: run-tests
         run: npm run test
@@ -36,7 +37,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: cache-action
-        uses: ./.github/actions/cache-deps/action.yml
+        uses: ./.github/actions/cache-deps
       - name: Build website
         run: npm run build
       - name: Upload artifacts
