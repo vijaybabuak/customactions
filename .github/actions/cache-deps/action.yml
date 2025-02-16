@@ -1,6 +1,6 @@
 name: 'Cache Dependencies'
 description: 'Cache & install Dependencies'
-run:
+runs:
   uses: 'composite'
   steps:
       - name: Cache dependencies
