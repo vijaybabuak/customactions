@@ -13,7 +13,7 @@ jobs:
       - name: cache-action
         uses: ./.github/actions/cache-deps
         with:
-          cache-file: package-lock.json
+          cache-file: 'package-lock.json'
       - name: Lint code
         run: npm run lint
   test:
@@ -25,7 +25,7 @@ jobs:
         id: cache-action
         uses: ./.github/actions/cache-deps
         with:
-          cache-file: package-lock.json        
+          cache-file: 'package-lock.json'        
       - name: print cache status
         run: ' echo Cache status: ${{ steps.cache-action.outputs.cache-status }} '
       - name: Test code
@@ -46,7 +46,7 @@ jobs:
       - name: cache-action
         uses: ./.github/actions/cache-deps
         with:
-          cache-file: package-lock.json        
+          cache-file: 'package-lock.json'      
       - name: Build website
         run: npm run build
       - name: Upload artifacts
