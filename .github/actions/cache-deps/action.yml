@@ -10,7 +10,7 @@ inputs:
       type: string
       required: true
 env:
-  CACHE-FILE: ${ INPUT_CACHE-FILE }
+  CACHE-FILE: ${{ env.INPUT_CACHE-FILE }}
 runs:
   using: 'composite'
   steps:
@@ -18,7 +18,7 @@ runs:
         run: |
           
           echo "${{ inputs.cache-file }}"
-          echo "${ INPUT_CACHE-FILE }"
+          echo "${{ env.INPUT_CACHE-FILE }}"
           echo "ENV DATA : $CACHE-FILE"
           echo "After Subtituing Input: deps-node-modules-${{ hashFiles('**/$CACHE-FILE') }}"
         shell: bash
