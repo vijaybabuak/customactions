@@ -4,6 +4,11 @@ outputs:
    cache-status:
       description: 'Status of cache command'
       value:  ${{ steps.cache.outputs.cache-hit }}
+inputs:
+   cache-file:
+      description: 'file to be cached'
+      type: string
+      required: true
 runs:
   using: 'composite'
   steps:
@@ -12,7 +17,7 @@ runs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+          key: deps-node-modules-${{ hashFiles('**/${{ inputs.cache-file }}') }}
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
