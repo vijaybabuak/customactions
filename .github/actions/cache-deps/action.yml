@@ -3,7 +3,7 @@ description: 'Cache & install Dependencies'
 outputs:
    cache-status:
       description: 'Status of cache command'
-      value: ${{ steps.cache.output.cache-hit }} 
+      value:  $ {{ steps.cache.outputs.cache-hit }}
 runs:
   using: 'composite'
   steps:
