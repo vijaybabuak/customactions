@@ -16,6 +16,7 @@ runs:
         run: |
           echo 'Input file: ${{ inputs.cache-file }}'
           echo "After Subtituing Input: deps-node-modules-${{ hashFiles('**/${{ inputs.cache-file }}') }}"
+        shell: bash
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
