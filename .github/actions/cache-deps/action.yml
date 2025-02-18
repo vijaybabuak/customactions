@@ -9,14 +9,17 @@ inputs:
       description: 'file to be cached'
       type: string
       required: true
+env:
+  CACHE-FILE: file
 runs:
   using: 'composite'
   steps:
       - name: input-value
         run: |
-          echo 'cache-file=${{ inputs.cache-file }}' >> $GITHUB_ENV
-          echo 'ENV VARIABLE: $env.cache-file'
-          echo "After Subtituing Input: deps-node-modules-${{ hashFiles('**/$cache-file') }}"
+          
+          export $CACHE-FILE=${{ inputs.cache-file }}
+          echo "ENV DATA : $CACHE-FILE"
+          echo "After Subtituing Input: deps-node-modules-${{ hashFiles('**/$CACHE-FILE') }}"
         shell: bash
       - name: Cache dependencies
         id: cache
