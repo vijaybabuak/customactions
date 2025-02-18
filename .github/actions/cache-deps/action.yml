@@ -17,7 +17,8 @@ runs:
       - name: input-value
         run: |
           
-          export CACHE-FILE=${{ inputs.cache-file }}
+          echo "${{ inputs.cache-file }}"
+          echo "${ INPUT_CACHE-FILE }"
           echo "ENV DATA : $CACHE-FILE"
           echo "After Subtituing Input: deps-node-modules-${{ hashFiles('**/$CACHE-FILE') }}"
         shell: bash
