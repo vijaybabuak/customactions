@@ -20,7 +20,10 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: cache-action
+        id: cache-action
         uses: ./.github/actions/cache-deps
+      - name: print cache status
+        run: ' echo Cache status: ${{ steps.cache-action.outputs.cache-status }} '
       - name: Test code
         id: run-tests
         run: npm run test
