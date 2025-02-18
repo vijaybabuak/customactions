@@ -14,8 +14,8 @@ runs:
   steps:
       - name: input-value
         run: |
-          echo 'Input file: ${{ inputs.cache-file }}'
-          echo "After Subtituing Input: deps-node-modules-${{ hashFiles('**/${{ inputs.cache-file }}') }}"
+          echo 'cache-file=${{ inputs.cache-file }}' >> $GITHUB_ENV
+          echo "After Subtituing Input: deps-node-modules-${{ hashFiles('**/$cache-file') }}"
         shell: bash
       - name: Cache dependencies
         id: cache
