@@ -10,7 +10,7 @@ inputs:
       type: string
       required: true
 env:
-  CACHE-FILE: ${{ inputs.cache-file }}
+  CACHE-FILE: ${ INPUT_CACHE-FILE }
 runs:
   using: 'composite'
   steps:
