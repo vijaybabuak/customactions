@@ -11,7 +11,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: cache-action
-        uses: vijaybabuak/actions/
+        uses: vijaybabuak/standaloneactions/actions@v1
       - name: Lint code
         run: npm run lint
   test:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
       - name: cache-action
         id: cache-action
-        uses: vijaybabuak/actions/       
+        uses: vijaybabuak/standaloneactions/actions@v1       
       - name: print cache status
         run: ' echo Cache status: ${{ steps.cache-action.outputs.cache-status }} '
       - name: Test code
@@ -40,7 +40,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: cache-action
-        uses: vijaybabuak/actions/    
+        uses: vijaybabuak/standaloneactions/actions@v1    
       - name: Build website
         run: npm run build
       - name: Upload artifacts
